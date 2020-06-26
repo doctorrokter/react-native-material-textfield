@@ -76,6 +76,7 @@ export default class Label extends PureComponent {
         focusAnimation.interpolate({
           inputRange: [-1, 0, 1],
           outputRange: [errorColor, baseColor, tintColor],
+          useNativeDriver: false,
         });
 
     let textStyle = {
@@ -95,16 +96,19 @@ export default class Label extends PureComponent {
         scale: labelAnimation.interpolate({
           inputRange: [0, 1],
           outputRange: [1, activeFontSize / fontSize],
+          useNativeDriver: false,
         }),
       }, {
         translateY: labelAnimation.interpolate({
           inputRange: [0, 1],
           outputRange: [y0, y1],
+          useNativeDriver: false,
         }),
       }, {
         translateX: labelAnimation.interpolate({
           inputRange: [0, 1],
           outputRange: [x0, x1],
+          useNativeDriver: false,
         }),
       }],
     };

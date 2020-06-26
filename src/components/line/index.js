@@ -84,11 +84,13 @@ export default class Line extends PureComponent {
       borderColor: focusAnimation.interpolate({
         inputRange: [-1, 0, 1],
         outputRange: [errorColor, baseColor, tintColor],
+        useNativeDriver: false,
       }),
 
       borderWidth: focusAnimation.interpolate({
         inputRange: [-1, 0, 1],
         outputRange: [activeLineWidth, lineWidth, activeLineWidth],
+        useNativeDriver: false,
       }),
     };
   }
