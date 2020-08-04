@@ -9,6 +9,7 @@ import {
   Platform,
   ViewPropTypes,
 } from 'react-native';
+import { TextInputMask } from 'react-native-masked-text'
 
 import Line from '../line';
 import Label from '../label';
@@ -616,7 +617,7 @@ export default class TextField extends PureComponent {
     let inputStyle = this.inputStyle();
 
     return (
-      <TextInput
+      <TextInputMask
         selectionColor={tintColor}
 
         {...props}
