@@ -616,8 +616,13 @@ export default class TextField extends PureComponent {
     let props = this.inputProps();
     let inputStyle = this.inputStyle();
 
+    let Input = TextInput;
+    if (props.type && props.mask) {
+      Input = TextInputMask;
+    }
+
     return (
-      <TextInputMask
+      <Input
         selectionColor={tintColor}
 
         {...props}
