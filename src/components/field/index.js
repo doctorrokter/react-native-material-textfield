@@ -270,7 +270,7 @@ export default class TextField extends PureComponent {
     let { disabled, editable } = this.props;
     let { current: input } = this.inputRef;
 
-    if (!disabled && editable && input) {
+    if (!disabled && editable && input && input.focus) {
       input.focus();
     }
   }
@@ -278,13 +278,17 @@ export default class TextField extends PureComponent {
   blur() {
     let { current: input } = this.inputRef;
 
-    input.blur();
+    if (input && input.blur) {
+      input.blur();
+    }
   }
 
   clear() {
     let { current: input } = this.inputRef;
 
-    input.clear();
+    if (input && input.clear) {
+      input.clear();
+    }
 
     /* onChangeText is not triggered by .clear() */
     this.onChangeText('');
@@ -314,7 +318,11 @@ export default class TextField extends PureComponent {
   isFocused() {
     let { current: input } = this.inputRef;
 
-    return input.isFocused();
+    if (input && input.isFocused) {
+      return input.isFocused();
+    }
+
+    return false;
   }
 
   isRestricted() {
