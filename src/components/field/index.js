@@ -610,6 +610,7 @@ export default class TextField extends PureComponent {
       disabled,
       editable,
       tintColor,
+      mask,
       style: inputStyleOverrides,
     } = this.props;
 
@@ -617,12 +618,17 @@ export default class TextField extends PureComponent {
     let inputStyle = this.inputStyle();
 
     let Input = TextInput;
-    if (props.mask) {
+
+    if (mask) {
       props.type = 'custom';
       props.options = {
-        mask: props.mask,
+        mask: mask,
       };
       Input = TextInputMask;
+
+      props.refInput = this.inputRef;
+    } else {
+      props.ref = this.inputRef;
     }
 
     return (
