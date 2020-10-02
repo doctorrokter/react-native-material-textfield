@@ -7,7 +7,6 @@ import {
   Animated,
   StyleSheet,
   Platform,
-  ViewPropTypes,
 } from 'react-native';
 import { TextInputMask } from 'react-native-masked-text'
 
@@ -118,8 +117,8 @@ export default class TextField extends PureComponent {
     prefix: PropTypes.string,
     suffix: PropTypes.string,
 
-    containerStyle: (ViewPropTypes || View.propTypes).style,
-    inputContainerStyle: (ViewPropTypes || View.propTypes).style,
+    containerStyle: PropTypes.any,
+    inputContainerStyle: PropTypes.any,
   };
 
   static inputContainerStyle = styles.inputContainer;
