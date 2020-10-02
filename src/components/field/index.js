@@ -633,7 +633,7 @@ export default class TextField extends PureComponent {
       };
       Input = TextInputMask;
 
-      props.refInput = this.inputRef;
+      props.refInput = (ref) => this.inputRef = ref;
     } else {
       props.ref = this.inputRef;
     }
@@ -652,7 +652,6 @@ export default class TextField extends PureComponent {
         onFocus={this.onFocus}
         onBlur={this.onBlur}
         value={this.value()}
-        ref={this.inputRef}
       />
     );
   }
