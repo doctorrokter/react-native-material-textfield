@@ -2,11 +2,11 @@ import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 import {
   View,
-  Text,
   TextInput,
   Animated,
   StyleSheet,
   Platform,
+  TextInputProps,
 } from 'react-native';
 import { TextInputMask } from 'react-native-masked-text'
 
@@ -66,7 +66,7 @@ export default class TextField extends PureComponent {
   };
 
   static propTypes = {
-    ...TextInput.propTypes,
+    ...TextInputProps,
 
     animationDuration: PropTypes.number,
 
@@ -82,11 +82,11 @@ export default class TextField extends PureComponent {
       bottom: PropTypes.number,
     }),
 
-    labelOffset: Label.propTypes.offset,
+    labelOffset: PropTypes.any,
 
-    labelTextStyle: Text.propTypes.style,
-    titleTextStyle: Text.propTypes.style,
-    affixTextStyle: Text.propTypes.style,
+    labelTextStyle: PropTypes.any,
+    titleTextStyle: PropTypes.any,
+    affixTextStyle: PropTypes.any,
 
     tintColor: PropTypes.string,
     textColor: PropTypes.string,
@@ -104,8 +104,8 @@ export default class TextField extends PureComponent {
     activeLineWidth: PropTypes.number,
     disabledLineWidth: PropTypes.number,
 
-    lineType: Line.propTypes.lineType,
-    disabledLineType: Line.propTypes.lineType,
+    lineType: PropTypes.any,
+    disabledLineType: PropTypes.any,
 
     disabled: PropTypes.bool,
 
